@@ -1,0 +1,65 @@
+<div class="media-player">
+  <div class="media-player--wrapper">
+    <div class="artist player-center">
+      <ng-container *ngTemplateOutlet="artistZone"></ng-container>
+    </div>
+    <div class="player-controls player-center">
+      <ng-container *ngTemplateOutlet="playerZone"></ng-container>
+    </div>
+    <div class="player-audio player-center">
+      <ng-container *ngTemplateOutlet="playerAudio"></ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- Zone Templates -->
+
+<ng-template #artistZone>
+  <div class="artist-inside" *ngIf="mockCover.cover">
+    <img [src]="mockCover.cover" alt="" class="cover" />
+    <div class="track-info">
+      <h3 class="track-title">{{ mockCover.name }}</h3>
+      <h5 class="track-title sub-title">{{ mockCover?.song }}</h5>
+    </div>
+    <div class="track-like">
+      <i class="fa-regular fa-heart"></i>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #playerZone>
+  <div class="player-controls-inside">
+    <div class="buttons-media">
+      <button class="arrow btn">
+        <i class="fa-solid fa-backward-step"></i>
+      </button>
+      <button class="play btn">
+        <i></i>
+      </button>
+      <button class="arrow btn">
+        <i class="fa-solid fa-forward-step"></i>
+      </button>
+    </div>
+    <div class="media-linetime">
+      <div class="time">00:00</div>
+      <span #progressBar class="time-progress">
+        <span class="time-progress-live"> </span>
+      </span>
+      <div class="time">99:00</div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #playerAudio>
+  <div class="player-audio-inside">
+    <button class="btn-media">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </button>
+    <button class="btn-media">
+      <i class="fa-solid fa-hard-drive"></i>
+    </button>
+    <button class="btn-media">
+      <i class="fa-solid fa-volume-low"></i>
+    </button>
+  </div>
+</ng-template>
